@@ -15,12 +15,12 @@ try {
   console.log(`The steps: ${workflowSteps}`);
   
   const parsedSteps = JSON.parse(workflowSteps);
-  console.log(`The parsed steps: ${parsedSteps}`);
+  console.log(`The parsed steps:`, parsedSteps);
 
-  for (const step of parsedSteps) {
-    console.log(`The step: ${step}`);
-    console.log(`The step name: ${step.name}`);
-    console.log(`The step outcome: ${step.outcome}`);
+  for (const [stepName, stepInfo] of Object.entries(parsedSteps)) {
+    console.log(`Step Name: ${stepName}`);
+    console.log(`Step Info:`, stepInfo);
+    console.log(`Step Outcome: ${stepInfo.outcome}`);
   }
 } catch (error) {
   core.setFailed(error.message);
