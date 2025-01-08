@@ -34489,7 +34489,7 @@ try {
   console.log(`The steps: ${workflowSteps}`);
   
   // print the outcome of each step
-  const steps = JSON.parse(workflowSteps);
+  // const steps = JSON.parse(workflowSteps);
   steps.forEach(step => {
     console.log(`Step ${step.name} outcome: ${step.outcome}`);
   });
