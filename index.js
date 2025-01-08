@@ -16,7 +16,7 @@ try {
   
   // print the outcome of each step
   // const steps = JSON.parse(workflowSteps);
-  steps.forEach(step => {
+  workflowSteps.forEach(step => {
     console.log(`Step ${step.name} outcome: ${step.outcome}`);
   });
 } catch (error) {
