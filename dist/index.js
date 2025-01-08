@@ -34488,10 +34488,14 @@ try {
   const workflowSteps = core.getInput('steps');
   console.log(`The steps: ${workflowSteps}`);
   
-  // print the outcome of each step
-  Object.keys(workflowSteps).forEach(stepName => {
-    console.log(`Step ${stepName} outcome: ${workflowSteps[stepName].outcome}`);
-  });
+  const parsedSteps = JSON.parse(workflowSteps);
+  console.log(`The parsed steps: ${parsedSteps}`);
+  
+  for (const step of workflowSteps) {
+    console.log(`The step: ${step}`);
+    console.log(`The step name: ${step.name}`);
+    console.log(`The step outcome: ${step.outcome}`);
+  }
 } catch (error) {
   core.setFailed(error.message);
 }
