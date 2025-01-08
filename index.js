@@ -15,8 +15,8 @@ try {
   console.log(`The steps: ${workflowSteps}`);
   
   // print the outcome of each step
-  Object.entries(workflowSteps).forEach(([stepName,step]) => {
-    console.log(`Step ${stepName} outcome: ${step.outcome}`);
+  Object.keys(workflowSteps).forEach(stepName => {
+    console.log(`Step ${stepName} outcome: ${workflowSteps[stepName].outcome}`);
   });
 } catch (error) {
   core.setFailed(error.message);
