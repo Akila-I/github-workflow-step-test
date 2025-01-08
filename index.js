@@ -16,8 +16,8 @@ try {
   
   const parsedSteps = JSON.parse(workflowSteps);
   console.log(`The parsed steps: ${parsedSteps}`);
-  
-  for (const step of workflowSteps) {
+
+  for (const step of parsedSteps) {
     console.log(`The step: ${step}`);
     console.log(`The step name: ${step.name}`);
     console.log(`The step outcome: ${step.outcome}`);
