@@ -34485,7 +34485,7 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
   // Get all previous steps of the workflow
-  const workflowSteps = github.context;
+  const workflowSteps = JSON.stringify(github.context, undefined, 2)
   console.log(`The steps: ${workflowSteps}`);
 } catch (error) {
   core.setFailed(error.message);
