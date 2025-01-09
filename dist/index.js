@@ -34490,12 +34490,23 @@ try {
   
   const parsedSteps = JSON.parse(workflowSteps);
   console.log(`The parsed steps:`, parsedSteps);
-
-  for (const [stepName, stepInfo] of Object.entries(parsedSteps)) {
-    console.log(`Step Name: ${stepName}`);
-    console.log(`Step Info:`, stepInfo);
-    console.log(`Step Outcome: ${stepInfo.outcome}`);
+  
+  if (isBuildFailed(parsedSteps)) {
+    console.log('Build failed');
   }
+
+  const isBuildFailed = (parsedSteps) => {
+    for (const [stepName, stepInfo] of Object.entries(parsedSteps)) {
+      console.log(`Step Name: ${stepName}`);
+      console.log(`Step Info:`, stepInfo);
+      console.log(`Step Outcome: ${stepInfo.outcome}`);
+      if (stepInfo.outcome === 'failure') {
+        return true;
+      }
+    }
+    return false;
+  }
+
 } catch (error) {
   core.setFailed(error.message);
 }
